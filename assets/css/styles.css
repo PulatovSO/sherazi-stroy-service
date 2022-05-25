@@ -6,6 +6,7 @@
 :root {
     /*========== Colors ==========*/
     --primary-color: #99823D;
+    /* --primary-color: #d1c23a; */
     --secondary-color:#141414;
     --light-gray-color:#EBEBEB;
     --white-color: #ffffff;
@@ -167,6 +168,22 @@ header {
     color: var(--primary-color);
 }
 
+.header__menu-wrap {
+    display: none;
+    justify-content: end;
+    width: 100%;
+}
+
+.header__menu-btn {
+    justify-self: end;
+    padding: 20px;
+    color: var(--white-color);
+}
+
+.bx-menu {
+    font-size: 28px;
+}
+
 /*=============== HERO ===============*/
 .hero {
     background-color: var(--secondary-color);
@@ -257,6 +274,10 @@ header {
     font-size: 12px;
     letter-spacing: 2.975px;
     text-transform: uppercase; 
+}
+
+.hero__social-link .bx {
+    display: none;
 }
 
 /*=============== SERVICES ===============*/
@@ -435,12 +456,50 @@ header {
 .services__list {
     margin-top: 82px;
     display: grid;
+    grid-gap: 30px;
     grid-template-columns: repeat(3, 1fr);
 }
 
 .service {
     padding: 34px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+    position: relative;
+    background-color: var(--white-color);
 }
+
+.service::before {
+    content: '';
+    display: inline-block;
+    width: 0%;
+    height: 0%;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+}
+
+.service::after {
+    content: '';
+    display: inline-block;
+    width: 0%;
+    height: 0%;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+}
+
+.service:hover::before, 
+.service:hover::after {
+    width: 50%;
+    height: 50%;
+}
+
 
 .service__inner {
     position: relative;
@@ -504,7 +563,7 @@ header {
     background-image: url('../img/icons/service6.png');
 }
 
-/*=============== CONTACTS ===============*/
+/*=============== FOOTER ===============*/
 .footer {
     margin-top: 100px;
     background-color: var(--secondary-color);
@@ -571,4 +630,65 @@ header {
     color: var(--white-color);
 }
 
-/*=============== FOOTER ===============*/
+
+/*=============== MEDIA QUERIES ===============*/
+/* for medium devices */
+@media screen and (max-width: 1235px) {
+    .container {
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1036px) {
+    .hero__social-list {
+        display: flex;
+        width: max-content;
+        position: relative;
+        column-gap: 0;
+        border: 1px solid red;
+    }
+    .hero__social-link {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 68px;
+        height: 68px;
+        border: 1px solid red;
+    }
+
+    .hero__social-link .bx {
+        display: block;
+        font-size: 25px;
+    }
+
+    .hero__social-link span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .header__nav {
+        display: none;
+    }
+
+    .header__menu-wrap {
+        display: flex;
+    }
+}
+
+/* for small devices */
+@media screen and (max-width: 768px) {
+    .hero__desc {
+        padding: 68px;
+        top: 50%;
+        left: 50%;
+        width: 500px;
+        height: 424px;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero__title {
+        margin: 0;
+        font-size: 50px;
+    }
+}
