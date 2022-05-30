@@ -33,3 +33,23 @@ revealTop.reveal('.news', {delay: 200, origin: 'left'});
 revealTop.reveal('.projects__list', {delay: 200, origin: 'bottom'});
 revealTop.reveal('.footer__top', {delay: 100, origin: 'top'});
 revealTop.reveal('.contacts', {delay: 200, origin: 'bottom'});
+
+
+/*=============== GALLERY SLIDER ===============*/ 
+let galleryBody = document.querySelector('.gallery-body');
+let buttons = document.querySelectorAll('.button__btn');
+let galleryImage = document.querySelector('.gallery__list');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    buttons.forEach(button => {
+      button.classList.remove('gallery-active');
+    })
+    
+    url = `/assets/img/projects/project${e.target.order}.jpg`;
+    galleryImage.style.transform = `translateY(-${e.target.id}%)`;
+    galleryBody.style.backgroundImage = `url('/assets/img/projects/project${e.target.name}.jpg')`;
+    btn.classList.add('gallery-active');
+  })
+});
+
