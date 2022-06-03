@@ -13,30 +13,30 @@ menuBtns.forEach(btn => {
 
 
 /*=============== SLICK SLIDER ===============*/
-$(document).ready(function(){
-    $('.projects__list').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: false,
-        infinite: true,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-              }
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-              }
-            }
-        ]
-    });
-});
+// $(document).ready(function(){
+//     $('.projects__list').slick({
+//         slidesToShow: 3,
+//         slidesToScroll: 1,
+//         arrows: false,
+//         infinite: true,
+//         responsive: [
+//             {
+//               breakpoint: 1024,
+//               settings: {
+//                 slidesToShow: 2,
+//                 slidesToScroll: 1,
+//               }
+//             },
+//             {
+//               breakpoint: 768,
+//               settings: {
+//                 slidesToShow: 1,
+//                 slidesToScroll: 1,
+//               }
+//             }
+//         ]
+//     });
+// });
 
 /*=============== SROLL REVEAL ANIMATIONS ===============*/ 
 const revealTop = ScrollReveal({
@@ -50,7 +50,7 @@ revealTop.reveal('.hero__desc', {delay: 700, origin: 'right'});
 revealTop.reveal('.hero__image-wrap', {delay: 200, origin: 'left'});
 revealTop.reveal('.hero__shape', {delay: 800, origin: 'left'});
 revealTop.reveal('.news', {delay: 200, origin: 'left'});
-revealTop.reveal('.projects__list', {delay: 200, origin: 'bottom'});
+// revealTop.reveal('.projects__list', {delay: 200, origin: 'bottom'});
 revealTop.reveal('.footer__top', {delay: 100, origin: 'top'});
 revealTop.reveal('.contacts', {delay: 200, origin: 'bottom'});
 
@@ -73,3 +73,23 @@ buttons.forEach(btn => {
   })
 });
 
+// projects hovering
+let projects = document.querySelectorAll('.project');
+let staticProject = document.querySelector('.static-project');
+let projectList = document.querySelector('.projects__list');
+
+projects.forEach(project => {
+  project.addEventListener('mouseover', () => {
+    staticProject.style.width = '200px';
+    project.style.width = '400px';
+  })
+
+  project.addEventListener('mouseleave', () => {
+    project.style.width = '200px'
+  })
+})
+
+projectList.addEventListener('mouseleave', () => {
+  staticProject.style.width = '400px';
+  console.log('alik')
+})
