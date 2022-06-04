@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -241,7 +243,7 @@ header {
     width: 100%;
     height: 100vh;
     background-color: var(--secondary-color);
-    background-image: url('/assets/img/image/hero3.jpg');
+    background-image: url('/assets/img/image/hero.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -315,7 +317,7 @@ header {
 .about__left {
     position: relative;
     height: 600px;
-    background-image: url('/assets/img/image/about1.jpg');
+    background-image: url('/assets/img/image/about.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -472,14 +474,20 @@ header {
 .service {
     padding: 34px;
     transition: all 0.2s ease-in-out;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--white-color);
     position: relative;
     color: var(--white-color);
     font-family: 'Open sans';
+    background-image: linear-gradient(
+        130deg,
+        rgba(255, 255, 255, 0) 1%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.132) 100%
+    );
 }
 
 .service:hover {
-    box-shadow: 0px 4px 8px 0px var(--primary-color);
+    background: rgba(0, 0, 0, 0.149);
 }
 
 .service__inner {
@@ -545,7 +553,82 @@ header {
 }
 
 /*=============== FOOTER ===============*/
+.footer {
+    margin-top: 150px;
+    margin-bottom: 150px;
+    height: 500px;
+}
 
+.footer__container {
+    height: 100%;
+    display: flex;
+    column-gap: 50px;
+    position: relative;
+}
+
+.title-hidden {
+    display: none;
+}
+
+.footer__logo-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    box-shadow: 0px 4px 23px 0px var(--secondary-color);
+    background-image: linear-gradient(
+        130deg,
+        rgba(255, 255, 255, 0.184) 1%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+/* contacts */
+.contacts {
+    position: absolute;
+    left: calc(50%);
+}
+
+.contacts__item {
+    margin-top: 20px;
+    display: flex;
+    font-size: 18px;
+    color: var(--white-color);
+}
+
+.contacts__item i {
+    color: var(--primary-color);
+}
+
+.contacts__item span {
+    padding-top: 4px;
+    display: inline-block;
+    margin-left: 10px;
+    font-family: 'Lato';
+    text-align: right;
+}
+
+.contacts__text {
+    margin: 20px 0;
+    width: 80%;
+    font-family: 'Poppins';
+}
+
+.contacts__btn-wrap {
+    display: flex;
+    margin-top: 20px;
+}
+
+.footer__copyright {
+    display: block;
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    color: var(--white-color);
+}
 
 /*=============== MEDIA QUERIES ===============*/
 /* for large devices */
@@ -563,6 +646,17 @@ header {
     .hero__desc {
         left: unset;
         right: 100px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .footer__container {
+        width: 95%;
+    }
+
+    .footer__logo-wrap {
+        width: 450px;
+        height: 450px;
     }
 }
 
@@ -603,6 +697,50 @@ header {
 
     .about__image {
         display: block;
+    }
+
+    .footer {
+        margin-bottom: 50px;
+        height: auto;
+    }
+
+    .title-none {
+        display: none;
+    }
+    .title-hidden {
+        display: block;
+    }
+
+    .footer__container {
+        flex-direction: column;
+        row-gap: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer__logo-wrap,
+    .contacts {
+        position: static;
+        /* border: 1px solid red; */
+    }
+    
+    .contacts {
+        width: 500px;
+    }
+
+    .contacts__text {
+        width: 100%;
+    }
+
+    .contacts__btn-wrap {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contacts__btn {
+        display: block;
+        text-align: center;
     }
 }
 
@@ -729,6 +867,29 @@ header {
     .projects__list {
         grid-gap: 20px;
         grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .projects__title {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .footer__logo-wrap,
+    .contacts {
+        width: 100%;
+        height: auto;
+    }
+
+    .contacts__text {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .title {
+        font-size: 28px;
     }
 }
 
